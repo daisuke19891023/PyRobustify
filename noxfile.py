@@ -35,6 +35,18 @@ def lint(session: Session) -> None:
 
 
 @nox.session(python=["3.12"])
+def formatting(session: Session) -> None:
+    session.install("-c", constraints(session).as_posix(), "ruff")
+    session.run("ruff", "format")
+
+
+@nox.session(python=["3.12"])
 def typing(session: Session) -> None:
     session.install("-c", constraints(session).as_posix(), ".[typing]")
     session.run("mypy")
+
+
+@nox.session(python=["3.12"])
+def test(session: Session) -> None:
+    session.install("-c", constraints(session).as_posix(), ".[tests]")
+    session.run("pytest")

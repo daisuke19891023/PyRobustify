@@ -86,6 +86,9 @@ ignore = [
      "D",
  ]
 
+# testsディレクトリ配下のみにS101を無効化
+per-file-ignores = { "tests/*" = ["S101"] }
+
  # Allow fix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
 unfixable = []
