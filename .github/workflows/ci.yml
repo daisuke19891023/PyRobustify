@@ -22,6 +22,6 @@ jobs:
         - name: Set up uv
           uses: yezz123/setup-uv@v4
         - name: Install nox
-          run: uv install nox
+          run: uv pip install nox
         - name: run nox
           run: uv run nox
